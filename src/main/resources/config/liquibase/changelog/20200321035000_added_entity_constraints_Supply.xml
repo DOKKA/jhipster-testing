@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity Supply.
+    -->
+    <changeSet id="20200321035000-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="supply"
+                                 constraintName="fk_supply_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="supply"
+                                 constraintName="fk_supply_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+
+        <addForeignKeyConstraint baseColumnNames="unit_id"
+                                 baseTableName="supply"
+                                 constraintName="fk_supply_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unit"/>
+
+        <addForeignKeyConstraint baseColumnNames="good_id"
+                                 baseTableName="supply"
+                                 constraintName="fk_supply_good_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="good"/>
+
+        <addForeignKeyConstraint baseColumnNames="service_id"
+                                 baseTableName="supply"
+                                 constraintName="fk_supply_service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service"/>
+
+    </changeSet>
+</databaseChangeLog>

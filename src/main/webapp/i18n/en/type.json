@@ -1,0 +1,9 @@
+{
+  "gotchooApp": {
+    "Type": {
+      "null": "",
+      "GOOD": "GOOD",
+      "SERVICE": "SERVICE"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+enum Type{
+ GOOD, SERVICE
+}
+
+entity Good {
+ name String
+}
+
+entity Service {
+name String
+}
+
+entity Unit {
+name String
+}
+
+entity Demand {
+type Type,
+quantity Integer
+}
+
+entity Supply {
+type Type,
+quantity Integer
+}
+
+entity Location {
+	streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+
+relationship ManyToOne {
+	Demand{user(email)} to User
+	Demand{location(streetAddress)} to Location
+    Demand{unit(name)} to Unit
+    Demand{good(name)} to Good
+    Demand{service(name)} to Service
+    
+    Supply{user(email)} to User
+    Supply{location(streetAddress)} to Location
+    Supply{unit(name)} to Unit
+    Supply{good(name)} to Good
+    Supply{service(name)} to Service
+}

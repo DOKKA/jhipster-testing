@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="supply">
+            <h2><span jhiTranslate="gotchooApp.supply.detail.title">Supply</span> {{ supply.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gotchooApp.supply.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gotchooApp.Type.' + supply.type }}">{{ supply.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="gotchooApp.supply.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ supply.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="gotchooApp.supply.user">User</span></dt>
+                <dd>
+                    {{ supply.user?.email }}
+                </dd>
+                <dt><span jhiTranslate="gotchooApp.supply.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="supply.location">
+                        <a [routerLink]="['/location', supply.location?.id, 'view']">{{ supply.location?.streetAddress }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gotchooApp.supply.unit">Unit</span></dt>
+                <dd>
+                    <div *ngIf="supply.unit">
+                        <a [routerLink]="['/unit', supply.unit?.id, 'view']">{{ supply.unit?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gotchooApp.supply.good">Good</span></dt>
+                <dd>
+                    <div *ngIf="supply.good">
+                        <a [routerLink]="['/good', supply.good?.id, 'view']">{{ supply.good?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gotchooApp.supply.service">Service</span></dt>
+                <dd>
+                    <div *ngIf="supply.service">
+                        <a [routerLink]="['/service', supply.service?.id, 'view']">{{ supply.service?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/supply', supply.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
